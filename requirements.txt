@@ -1,0 +1,11 @@
+Adafruit-Blinka
+adafruit-circuitpython-ahtx0
+adafruit-circuitpython-busdevice
+adafruit-circuitpython-register
+adafruit-circuitpython-requests
+adafruit-circuitpython-typing
+Adafruit-PlatformDetect
+Adafruit-PureIO
+adafruit-python-shell
+adafruit-circuitpython-ahtx0
+adafruit-circuitpython-sgp30
