@@ -208,6 +208,10 @@ dmypy.json
 # pytype static type analyzer
 .pytype/
 
+#jetbrains all
+.idea/
 # Cython debug symbols
 cython_debug/
+
+/temp_humid_py.db
 

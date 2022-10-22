@@ -1,3 +1,10 @@
+Using Adafruit VOC detector:
+- SGP30 Air Quality Sensor Breakout - VOC and eCO2
+  - https://www.adafruit.com/product/3709
+- AHT20 - Temperature & Humidity Sensor
+  - https://www.adafruit.com/product/4566
+
+
 **Software and Dependencies:**
 
 * Adafruit CircuitPython firmware for the supported boards: https://github.com/adafruit/circuitpython/releases
@@ -11,6 +18,21 @@ Parameters
 
 * **i2c** ([*I2C*](https://docs.circuitpython.org/en/latest/shared-bindings/busio/index.html#busio.I2C)) – The I2C bus the SGP30 is connected to.
 * **address** ([*int*](https://docs.python.org/3/library/functions.html#int)) – The I2C address of the device. Defaults to `0x58`
+
+### Get hex address of existing I2C devices:
+```bash
+$sudo i2cdetect -y 1
+
+     0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+00:                         -- -- -- -- -- -- -- -- 
+10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+30: -- -- -- -- -- -- -- -- 38 -- -- -- -- -- -- -- 
+40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+70: -- -- -- -- -- -- -- --  
+```
 
 **Quickstart: Importing and using the SGP30 temperature sensor**
 
@@ -84,3 +106,18 @@ Set the humidity in g/m3 for eCO2 and TVOC compensation algorithm
 set_iaq_relative_humidity(*celsius*, *relative_humidity* )[[source]](https://docs.circuitpython.org/projects/sgp30/en/latest/_modules/adafruit_sgp30.html#Adafruit_SGP30.set_iaq_relative_humidity)
 
 Set the humidity in g/m3 for eCo2 and TVOC compensation algorithm. The absolute humidity is calculated from the temperature (Celsius) and relative humidity (as a percentage).
+
+### Temp Humid sensor very easy:
+```python
+from icecream import ic 
+import adafruit_ahtx0
+
+# Create the sensor object using I2C
+sensor = adafruit_ahtx0.AHTx0(board.I2C())
+
+temp_sensor = sensor.temperature
+humidity_sensor = sensor.relative_humidity
+
+ic(int(temp_sensor), int(humidity_sensor))
+
+```
